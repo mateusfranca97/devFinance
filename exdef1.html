@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nacilnalidade</title>
+
+
+    <style>
+        body {
+          background-color: #925292;
+          color: white;
+          font: normal 20px Arial;
+        }
+        h1 {
+          color: orange;
+          box-shadow: orangered;
+        }
+      </style>
+
+
+</head>
+<body>
+    <h1>Você e brasileiro?, onde vc nasceu?</h1>
+<p>Digite seu pais</p><input type="text" id="txtpais">
+<input type="button" value="avaliar" onclick="Nat()">
+   <div id="res"></div> 
+    
+<script>
+    function Nat() {
+
+        var tvpais = document.getElementById('txtpais')
+        var res = document.getElementById('res')
+        var lugar = (tvpais.value)
+        var pais = 'brasil'
+
+        res.innerHTML = `voce e nativo no ${lugar}, `
+        
+        if(lugar==pais){
+            res.innerHTML += `como voce nasceu ${pais} vc e brasileiro!`
+        }else{
+            res.innerHTML += `como voce nasceu em ${lugar} vc  não e brasileiro!`
+        }
+
+    }
+
+</script>
+</body>
+</html>

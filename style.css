@@ -1,21 +1,23 @@
+:root{
+    --dark-blue: #363F5F;
+    --green: #49AA26;
+    --light-green:#3DD705;
+    --red: #E92929;
+}
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-:root{
-    --dark-blue: #363F5F;
+html{
+    font-size: 93.75%;
 }
 
 body{
     background: #f0f2f5;
     font-family: "Poppins",sans-serif;
-}
-
-.container{
-    width: min(90vw,800px);
-    margin: auto;
 }
 
 .sr-only{
@@ -30,13 +32,72 @@ body{
     border-width: 0;
 }
 
+.container{
+    width: min(90vw,800px);
+    margin: auto;
+}
+
+/*======= TITLES ========*/
+
 h2{
     margin-top: 3.2rem;
     margin-bottom: 0.8rem;
-    color: #363F5F;
+    color: var(--dark-blue);
     font-weight: normal;
 }
 
+/*======= LINKS & BUTTONS ========*/
+
+a{
+    color: var(--green);
+    text-decoration: none;
+}
+
+a:hover{
+    color: var(--light-green);
+}
+
+.button.new {
+    display: inline-block;
+    margin-bottom: .8rem;
+}
+
+button{
+    width: 100%;
+    height: 50px;
+    border:none;
+    color: white;
+    background: var(--green);
+    padding: 0;
+    border-radius: .25rem;
+    cursor: pointer;
+}
+
+button:hover{
+    background: var(--light-green);
+}
+
+.button.new{
+    display: inline-block;
+    margin-top: .8rem;
+}
+
+.button.cancel{
+    opacity: .7;
+    color: var(--red);
+    border: 2px solid var(--red);
+    border-radius: .25rem;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button.cancel:hover{
+    opacity: 1;
+}
+
+/*======= HEADER ========*/
 header{
     background-color: #2D4A22;
     padding: 2rem 0 10rem;
@@ -48,6 +109,7 @@ header{
     font-weight: 100;
 }
 
+/*======= BALANCE ========*/
 #balance{
     margin-top: -8rem;
 }
@@ -65,10 +127,13 @@ header{
     color: var(--dark-blue);
 }
 
+/*======= CARD ========*/
 .card h3{
     font-weight: normal;
     font-size: 1rem;
     display:flex;
+    align-items: center;
+    justify-content: space-between;
     
 }
 
@@ -79,12 +144,17 @@ header{
 }
 
 .card.total{
-    background: #49AA26;
+    background: var(--green);
     color: white; 
 }
 
+
+/*======= TABLE ========*/
+
 #transaction {
+    display: block;
     width:100%;
+    overflow-x: auto;
 }
 
 #data-table{
@@ -99,13 +169,17 @@ table tbody td:first-child{
     border-radius: 0.25rem 0 0 0.25rem;
 }
 
+table thead tr:last-child,
+table tbody td:last-child{
+    border-radius: 0 0.25rem 0.25rem 0;
+}
+
+
 table thead th {
     background:white;
-    opacity: 1;
     font-weight: normal;
     padding: 1rem 2rem;
     text-align: left;
-    color:#969CB3;
 }
 
 table tbody tr{
@@ -134,10 +208,84 @@ td.expense{
     color: #E92929;
 }
 
+/*======= MODAL ========*/
+.modal-overlay{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal-overlay.active{
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal{
+    background: #F0F2F5;
+    padding: 2.4rem;
+}
+
+/*======= FORM ========*/
+#form{
+    max-width: 500px;
+}
+
+#form h2{
+    margin-top:0;
+}
+
+input{
+    border: none;
+    border-radius: .2rem;
+    padding: .8rem;
+    width: 100%;
+}
+
+.input-group{
+    margin-top: .8rem;
+}
+
+form small{
+    opacity: .4;
+}
+
+.input-group.actions{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-group.actions .button,
+.input-group.actions button {
+    width: 48%;
+}
+
+
+/*======= FOOTER ========*/
+
 footer{
     text-align: center;
     padding:4rem 0  2rem;
     color: var(--dark-blue);
     opacity: 0.6;
+}
+
+@media(min-width: 800px){
+    html{
+        font-size: 87.5%;
+    }
+
+    #balance{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
 }
 
