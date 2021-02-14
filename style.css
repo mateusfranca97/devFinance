@@ -273,6 +273,7 @@ form small{
 footer{
     text-align: center;
     padding:4rem 0  2rem;
+    z-index: -1;
     color: var(--dark-blue);
     opacity: 0.6;
 }
